@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
-import StoreContext, {Provider} from "./StoreContext";
+import {Provider} from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let rerenderEntireTree = () => {
+
     root.render(
         <BrowserRouter>
             <React.StrictMode>
@@ -18,10 +18,4 @@ let rerenderEntireTree = () => {
             </React.StrictMode>
         </BrowserRouter>
     );
-};
 
-rerenderEntireTree(store.getState())
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-})
